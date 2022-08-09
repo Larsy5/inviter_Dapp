@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!-- This web page is copied by the "https://bazhan.wang" -->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title></title>
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/font.js"></script>
+<!--    <script src="http://ido.askido.xyz/js/time.js"></script>-->
+	<!-- 	<link rel="stylesheet" href="css/Ranking.css" /> -->
+    <link rel="stylesheet" href="css/swiper-bundle.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/media.css" />
+	<link rel="stylesheet" href="css/NftStyle.css" />
+	<link rel="stylesheet" href="css/Ranking.css" />
+    <script src="js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <script type="text/javascript" src="js/wow.js"></script>
+	<script type="text/javascript" src="./Bignumber.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/web3/1.7.4/web3.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.6/clipboard.js"></script>
+	
+  </head>
+
+  <body>
+    <div class="tbg">
+      <header>
+        <div class="container">
+          <div class="top_r">
+            <div class="menu-handler">
+              <span></span>
+            </div>
+          </div>
+          <a class="logo"><img src="img/pyramid_logo.png" /></a>
+           <button class="lang add" id="btn-connect" onclick="connectTo()">Connect Wallet</button>
+          <div class="menu">
+            <ul>
+              <li>
+                <a href="#">主页</a>
+              </li>
+              <li>
+                <a href="#">IDO</a>
+              </li>
+              <li>
+                <a href="#">NFT市场</a>
+              </li>
+              <li>
+                <a href="#">审计</a>
+              </li>
+              <li>
+                <a href="https://t.me/FeroCoin">电报</a>
+              </li>
+              <li>
+                <a href="#">Disscord</a>
+              </li>
+              <li>
+                <a href="https://mobile.twitter.com/ferocoin2022?s=11">推特</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- <div class="container"> -->
+        <!-- <div class="logo">
+          <a href=""><img src="static/picture/logo2.png"></a>
+      </div> -->
+
+    <!--    <div class="time">
+          <ul class="countdown">
+            <li>
+              <div>
+                <span class="days">00</span>
+                <p class="days_ref">天</p>
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <span class="hours">00</span>
+                <p class="hours_ref">时</p>
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <span class="minutes">00</span>
+                <p class="minutes_ref">分</p>
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <span class="seconds">00</span>
+                <p class="seconds_ref">秒</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+    <img src="img/pancakeswap.jpg" width="100%" />
+    <div class="container">
+      <div class="tit">IDO邀请</div>
+
+     <!-- <div class="zongliang">
+        <div class="srcol">
+          <span>
+            <em><b class="jindutiao">0</b>%</em>
+          </span>
+        </div>
+      </div> -->
+
+      <div class="ivo-container">
+        <ul class="ivo-item">
+          <li class="ivo-item__title" >你的USDT余额</li>
+          <li class="ivo-item__info">
+            <span class="ivo-item__value" id="UsdtBalance">0</span>
+            <span class="ivo-item__unit">USDT</span>
+          </li>
+        </ul>
+        <ul class="ivo-item">
+          <li class="ivo-item__title">IDO 邀请人数</li>
+          <li class="ivo-item__info">
+            <span class="ivo-item__value" id="ido_renshu">0</span>
+            <span class="ivo-item__unit">人</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lists">
+        <div class="col">
+          <div class="row">
+            <!-- <span>ASK行情</span> -->
+            
+            <!-- <div>800 ASK = <font class="hangqing">100</font> USDT</div> -->
+         <!--   <div>1 ASK = <font class="hangqing">0.2</font> USDT</div> -->
+
+          </div>
+          <div class="row">
+            <span>IDO价格：第一档</span>
+            <div><font>50</font> USDT / 5000 Fero</div>
+          </div>
+		  <div class="row">
+		    <span>IDO价格：第二档</span>
+		    <div><font>118</font> USDT / 11800枚 Fero</div>
+		  </div>
+		  <div class="row">
+		    <span>IDO价格：第三档</span>
+		    <div><font>200</font> USDT / 20000枚 Fero</div>
+		  </div>
+		  <div class="row">
+		    <span>注意：</span>
+		    <div><font class="yugou">只能购买这三档</font> Fero数量</div>
+		  </div>
+        </div>
+
+        <div class="col">
+          <div class="row">
+            <span>可提取量</span>
+            <div><font class="daozhang" id="idoBal">0</font> Fero
+			</div>
+          </div>9
+
+          <div class="row">
+            <span>释放量</span>
+            <div><font class="shengyu" id="RelBal">0</font> Fero</div>
+          </div>
+			<div class="row">
+			  <span>预购量</span>
+			  <div><font class="yugou">0</font> Fero</div>
+			</div>
+         <!-- <div class="row">
+            <span>USDT余额</span>
+            <div><font class="usdt-yu">0</font> USDT</div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="tiqu-bi-box">
+        <a href="javascript:void(0)" onclick="withdraw()" class="tiqu-bi erdu-btn">额度提取</a>
+      </div>
+
+      <div class="yaoqing2">
+        <div class="title">购买数量</div>
+
+        <input id="buyAmount" class="txt2 RootPath" type="text" placeholder="50 USDT" />
+        <button class="text-uppercase ido zhiya-btn" onclick="UsdtTransfer()">IDO购买</button>
+      </div>
+
+      <div class="yaoqing2">
+        <div class="title">邀请链接</div>
+
+        <input id="InvUrl" class="txt2 RootPath" type="text" value="" />
+        <button class="text-uppercase btn" data-clipboard-target="#InvUrl">复制邀请链接</button>
+      </div>
+	  <div class="wzBox">
+	  	<div class="title clearfix">
+	  	  <span>你的NFT盲盒:</span>
+	  	  <!-- <br />
+	  	  <br /> -->
+	  	  <em></em>
+	  	</div>
+		<br />
+		<div id="nftBox">
+			<!-- <div style=""><img src="./img/盲盒.png" width="100px" alt="">
+					<button class="custom-btn btn-9" >打开盒子</button></div>
+			<div style="margin-left: 30px;"><img src="./img/盲盒.png" width="100px" alt="">
+							<button>打开盒子</button></div> -->
+		</div>
+	  </div>
+	   <div class="wzBox">
+	   		<article class="leaderboard">
+	   		  <header>
+	   		
+	   		    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve" class="leaderboard__icon">
+	   		      <g>
+	   		        <g>
+	   		          <path d="M466.45,49.374c-7.065-8.308-17.368-13.071-28.267-13.071H402.41v-11.19C402.41,11.266,391.143,0,377.297,0H134.705
+	   					c-13.848,0-25.112,11.266-25.112,25.112v11.19H73.816c-10.899,0-21.203,4.764-28.267,13.071
+	   					c-6.992,8.221-10.014,19.019-8.289,29.624c9.4,57.8,45.775,108.863,97.4,136.872c4.717,11.341,10.059,22.083,16.008,32.091
+	   					c19.002,31.975,42.625,54.073,68.627,64.76c2.635,26.644-15.094,51.885-41.794,57.9c-0.057,0.013-0.097,0.033-0.153,0.046
+	   					c-5.211,1.245-9.09,5.921-9.09,11.513v54.363h-21.986c-19.602,0-35.549,15.947-35.549,35.549v28.058
+	   					c0,6.545,5.305,11.85,11.85,11.85H390.56c6.545,0,11.85-5.305,11.85-11.85v-28.058c0-19.602-15.947-35.549-35.549-35.549h-21.988
+	   					V382.18c0-5.603-3.893-10.286-9.118-11.52c-0.049-0.012-0.096-0.028-0.145-0.04c-26.902-6.055-44.664-31.55-41.752-58.394
+	   					c25.548-10.86,48.757-32.761,67.479-64.264c5.949-10.009,11.29-20.752,16.008-32.095c51.622-28.01,87.995-79.072,97.395-136.87
+	   					C476.465,68.392,473.443,57.595,466.45,49.374z M60.652,75.192c-0.616-3.787,0.431-7.504,2.949-10.466
+	   					c2.555-3.004,6.277-4.726,10.214-4.726h35.777v21.802c0,34.186,4.363,67.3,12.632,97.583
+	   					C89.728,153.706,67.354,116.403,60.652,75.192z M366.861,460.243c6.534,0,11.85,5.316,11.85,11.85v16.208H134.422v-16.208
+	   					c0-6.534,5.316-11.85,11.85-11.85H366.861z M321.173,394.03v42.513H191.96V394.03H321.173z M223.037,370.331
+	   					c2.929-3.224,5.607-6.719,8.002-10.46c7.897-12.339,12.042-26.357,12.228-40.674c4.209,0.573,8.457,0.88,12.741,0.88
+	   					c4.661,0,9.279-0.358,13.852-1.036c0.27,19.239,7.758,37.45,20.349,51.289H223.037z M378.709,81.803
+	   					c0,58.379-13.406,113.089-37.747,154.049c-23.192,39.03-53.364,60.525-84.956,60.525c-31.597,0-61.771-21.494-84.966-60.523
+	   					c-24.342-40.961-37.748-95.671-37.748-154.049V25.112c0-0.78,0.634-1.413,1.412-1.413h242.591c0.78,0,1.414,0.634,1.414,1.413
+	   					V81.803z M451.348,75.192c-6.702,41.208-29.074,78.51-61.569,104.191c8.268-30.283,12.631-63.395,12.631-97.58V60.001h35.773
+	   					c3.938,0,7.66,1.723,10.214,4.726C450.915,67.688,451.963,71.405,451.348,75.192z" />
+	   		        </g>
+	   		      </g>
+	   		      <g>
+	   		        <g>
+	   		          <path d="M327.941,121.658c-1.395-4.288-5.103-7.414-9.566-8.064l-35.758-5.196l-15.991-32.402
+	   					c-1.997-4.044-6.116-6.605-10.626-6.605c-4.511,0-8.63,2.561-10.626,6.605l-15.991,32.402l-35.758,5.196
+	   					c-4.464,0.648-8.172,3.775-9.566,8.065c-1.393,4.291-0.231,8.999,2.999,12.148l25.875,25.221l-6.109,35.613
+	   					c-0.763,4.446,1.064,8.938,4.714,11.59c3.648,2.651,8.487,3,12.479,0.902L256,190.32l31.982,16.813
+	   					c1.734,0.911,3.627,1.36,5.512,1.36c2.456,0,4.902-0.763,6.966-2.263c3.65-2.652,5.477-7.144,4.714-11.59l-6.109-35.613
+	   					l25.875-25.221C328.172,130.658,329.334,125.949,327.941,121.658z M278.064,146.405c-2.793,2.722-4.068,6.644-3.408,10.489
+	   					l3.102,18.09l-16.245-8.541c-1.725-0.908-3.62-1.36-5.514-1.36c-1.894,0-3.788,0.454-5.514,1.36l-16.245,8.541l3.102-18.09
+	   					c0.66-3.844-0.615-7.766-3.408-10.489l-13.141-12.81l18.162-2.64c3.859-0.56,7.196-2.985,8.922-6.482l8.123-16.458l8.122,16.458
+	   					c1.727,3.497,5.062,5.921,8.922,6.482l18.162,2.64L278.064,146.405z" />
+	   		        </g>
+	   		      </g>
+	   		    </svg>
+	   		
+	   		    <h1 class="leaderboard__title"><span class="leaderboard__title--top">Forbes</span><span class="leaderboard__title--bottom">Leaderboard</span></h1>
+	   		  </header>
+	   		  
+	   		  <main class="leaderboard__profiles">
+	   		    <!-- <article class="leaderboard__profile">
+	   		      
+	   		      <span class="leaderboard__name">0xA303f84De78028343AfDDD732e9d6E18a1C4a7cB</span>
+	   		      <span class="leaderboard__value">35.7</span>
+	   		    </article> -->
+	   		   <!-- 
+	   		    <article class="leaderboard__profile">
+	   		     
+	   		      <span class="leaderboard__name">Dustin Moskovitz</span>
+	   		      <span class="leaderboard__value">9.9</span>
+	   		    </article>
+	   		    
+	   		    <article class="leaderboard__profile">
+	   		      
+	   		      <span class="leaderboard__name">Elizabeth Holmes</span>
+	   		      <span class="leaderboard__value">4.5</span>
+	   		    </article>
+	   			<article class="leaderboard__profile">
+	   			  
+	   			  <span class="leaderboard__name">Elizabeth Holmes</span>
+	   			  <span class="leaderboard__value">4.5</span>
+	   			</article>
+	   			<article class="leaderboard__profile">
+	   			  
+	   			  <span class="leaderboard__name">Elizabeth Holmes</span>
+	   			  <span class="leaderboard__value">4.5</span>
+	   			</article>
+	   			<article class="leaderboard__profile">
+	   			  
+	   			  <span class="leaderboard__name">Elizabeth Holmes</span>
+	   			  <span class="leaderboard__value">4.5</span>
+	   			</article>
+	   			<article class="leaderboard__profile">
+	   			  
+	   			  <span class="leaderboard__name">Elizabeth Holmes</span>
+	   			  <span class="leaderboard__value">4.5</span>
+	   			</article> -->
+	   		    
+	   <!-- 		    <article class="leaderboard__profile">
+	   		      <img src="https://www.jq22.com/tp/6372812586954117362846160.png" alt="Evan Spiegel" class="leaderboard__picture">
+	   		      <span class="leaderboard__name">Evan Spiegel</span>
+	   		      <span class="leaderboard__value">2.1<span>B</span></span>
+	   		    </article> -->
+	   		  </main>
+	   		</div>
+	   	</div>
+      <div class="wzBox">
+        <div class="title clearfix">
+          <span>FERO代币的等级额度及机制说明</span>
+          <!-- <em>创始勋章分红收益=总分红/总勋章数量</em> -->
+        </div>
+        <div class="desc">
+          <p>
+          FERO旨在链游埃及元宇宙通行证
+          私募价格：分为三个等级（需用已经ido推荐人钱包地址链接）<br>
+		  50USDT，5000枚，赠送盲盒  ，几率1%获得NFT<br>
+		  118USDT，11800枚，赠送盲盒，几率2%获得NFT<br>
+		  200USDT，20000枚，赠送盲盒，几率3%获得NFT<br>
+          </p>
+          <!-- <p>3.  若合伙人推荐满10名合伙人（直推），则自动成为节点，除内置的系统奖励，节点拥有壹个创世勋章（NFT），创世勋章享受3%交易
+ 流水分红（分BNB），创世勋章可自由转让。</p>
+<p>4.  所有认购的代币和已获得奖金无需手动领取，买完即自动到账</p> -->
+        </div>
+      </div>
+
+      <div class="wzBox">
+        <div class="title clearfix">
+          <span>推广奖励NFT规则:</span>
+          <br />
+          <br />
+          <em></em>
+        </div>
+        <div class="desc">
+          <p>
+            <p>
+             1.邀请到一个人成功ido后我们用 网站当场返还40%的ido金额 ，
+             然后10%的金额回流到一个资金池子
+            </p>
+            <p style="margin-top:6px">2.池子里的钱累计不动 只有到ido结束后 我们按邀请人排名最前面的三十名平分奖金池的金额 。
+然后拉新 只有买了创世200u 拉满十个人才能获得nft  nft可以享受交易分红 </p>
+          </p>
+        </div>
+      </div>
+	
+     <!-- <div class="lists lists2">
+        <div class="col">
+          <div class="row">
+            <span>我的推荐人</span>
+            <div class="tuijian-ren">
+              <font></font>
+            </div>
+            <center>
+              <div class="tujian-box">
+                <input type="text" class="text" placeholder="请填写推荐人" style="color: #000" /><input
+                  type="button"
+                  class="button"
+                  value="确定"
+                  style="color: #00000; background: linear-gradient(to right, #ff67cb 0%, #ffcc67 99%)"
+                />
+              </div>
+            </center>
+          </div> -->
+
+          <!-- <div class="row">
+          <span>间接推广人数</span>
+          <div>
+            <font class="jiantuir">0</font> 个
+          </div>
+        </div> -->
+      <!--  </div>
+        <div class="reco-container">
+          <ul class="reco-container_detail">
+            <li class="reco-container_detail_item">
+              <span class="label">团队总规模</span>
+              <div class="value">
+                <span class="zhituir">0</span>
+                <span>人</span>
+              </div>
+            </li>
+            <li class="reco-container_detail_item">
+              <span class="label">团队购买金额</span>
+              <div class="value">
+                <span class="zhituijine">0</span>
+                <span>USDT</span>
+              </div>
+            </li>
+            <li class="reco-container_detail_item">
+              <span class="label">我的总奖励</span>
+              <div class="value">
+                <span class="jiangliliang">0</span>
+                <span>USDT</span>
+              </div>
+            </li>
+          </ul> -->
+          <!-- <div class="col">
+          <div class="row">
+            <span>团队总规模</span>
+            <div>
+              <font class="zhituir">0</font> 个
+            </div>
+          </div>
+          <div class="row">
+            <span>团队购买金额</span>
+            <div>
+              <font class="zhituijine">0</font> USDT
+            </div>
+          </div>
+          <div class="row">
+            <span>我的总奖励</span>
+            <div>
+              <font class="jiangliliang">0</font> USDT
+            </div>
+          </div>
+        </div> -->
+      <!--    <div class="reco-table">
+            <ul class="rec-table_header table_row">
+              <li>地址</li>
+              <li>时间</li>
+              <li>数量</li>
+            </ul>
+            <div class="rec-table_body" id="the-table-1">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <footer>
+      <div class="container">
+        <div class="share">
+        <!--  <a href="index.html"><img src="img/ico1.png" /></a> -->
+          <a href="https://mobile.twitter.com/ferocoin2022?s=11"><img src="img/ico2.png" /></a>
+      <!--    <a href="index.html"><img src="img/ico3.png" /></a> -->
+<!--          <a href="index.html"><img src="img/ico4.png" /></a> -->
+          <a href="https://t.me/FeroCoin"><img src="img/ico5.png" /></a>
+       <!--   <a href="index.html"><img src="img/ico6.png" /></a> -->
+        </div>
+      </div>
+
+      <!-- 弹出框 end -->
+
+      <div class="tanMeng allsuccess">
+        <div class="tanShow"></div>
+      </div>
+
+      <!-- 加载中 -->
+      <div class="loading">
+        <div class="oimg">
+          <div class="k-spinner">
+            <div class="k-bubble-1"></div>
+            <div class="k-bubble-2"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .share {
+        float: inherit;
+        width: auto;
+        border-right: inherit;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .lang {
+          top: -50%;
+        }
+
+        .tbg {
+          height: 313px;
+        }
+      }
+    </style>
+	<script type="text/javascript">
+		var clipboard = new ClipboardJS('.btn'); 
+		clipboard.on('success', function(e) {
+	// 成功时
+	    console.info('Action:', e.action);
+	    console.info('Text:', e.text);
+	    console.info('Trigger:', e.trigger);
+	    e.clearSelection();
+	    	alert("复制成功");
+	});
+	
+	</script>
+    <script type="text/javascript" src="js/jquery.downCount.js"></script>
+    <link href="css/loading.css" rel="stylesheet" />
+	<script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+<!--	<script type="text/javascript" src="https://unpkg.com/evm-chains/lib/index.js"></script>-->
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
+	<script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@toruslabs/torus-embed"></script>
+	<script src="./connect.js"></script>
+	<script src="./initIdoToken.js"></script>
+	<script src="./initUsdt.js"></script>
+	<script src="./js/NftBox.js"></script>
+    <script>
+        // alert('测试案例');
+    </script>
+  </body>
+</html>

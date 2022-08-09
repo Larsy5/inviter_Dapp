@@ -1,0 +1,531 @@
+
+/* CSS Document */
+*{ margin:0px; padding:0px;}
+body{
+  
+  background: #ffffff;
+  font-size:12px; 
+  font-family:"Microsoft Yahei" ;
+  color: #292929;
+}
+
+h1,h2,h3,h4,h5,h6{ font-size:14px; margin:0; padding:0;}
+div,form,img,ul,ol,li,dl,dt,dd,label{ margin:0; padding:0; border:0;list-style: none;}
+ul,ol,li,dl,dt,dd{ -style:none; -style-type:none;}
+EM {
+	FONT-STYLE: normal;
+  font:14px "Microsoft Yahei"; color:#333; 
+}
+.text{ border:1px solid #e5e5e5}
+a{ color:#292929; text-decoration:none;}
+a:hover{ color:#fc6832; text-decoration:none;}
+img{
+	display: block;
+
+}
+input{
+    border: 0px;
+    outline: none;
+}
+.clear{	width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;clear:both; overflow:hidden}
+.clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clearfix {zoom:1;}
+
+.transition{-webkit-transition:all .5s; -moz-transition:all .5s;-ms-transition:all .5s;-o-transition:all .5s;transition:all .5s}
+
+
+
+SPAN:focus{
+	outline:none; 
+	hide-focus:expression(this.hideFocus=true);
+}
+ div:focus{
+   outline:none; 
+   hide-focus:expression(this.hideFocus=true);
+}
+
+.menu-handler {
+
+	width: 100%;
+
+	display: block;
+	cursor: pointer;
+	z-index: 1010;
+}
+.menu-handler span {
+	position: relative;
+	display: block;
+	margin: 5.5px auto 0;
+	width: 100%;
+	height: 4px;
+	background-color: #ffffff;
+	-webkit-transition-duration: .3s, .3s;
+	-moz-transition-duration: .3s, .3s;
+	-ms-transition-duration: .3s, .3s;
+	-o-transition-duration: .3s, .3s;
+	transition-duration: .3s, .3s;
+	-webkit-transition-delay: .3s, 0s;
+	-moz-transition-delay: .3s, 0s;
+	-ms-transition-delay: .3s, 0s;
+	-o-transition-delay: .3s, 0s;
+	transition-delay: .3s, 0s;
+}
+
+.menu-handler span:after,
+.menu-handler span:before {
+	content: "";
+	position: absolute;
+	display: inline-block;
+	width: 120%;
+	height: 4px;
+	left: 0;
+	background-color: #ffffff;
+	-webkit-transition-duration: .3s, .3s;
+	-moz-transition-duration: .3s, .3s;
+	-ms-transition-duration: .3s, .3s;
+	-o-transition-duration: .3s, .3s;
+	transition-duration: .3s, .3s;
+	-webkit-transition-delay: .3s, 0s;
+	-moz-transition-delay: .3s, 0s;
+	-ms-transition-delay: .3s, 0s;
+	-o-transition-delay: .3s, 0s;
+	transition-delay: .3s, 0s
+}
+
+.menu-handler span:before {
+	top: -7px;
+	-webkit-transition-property: top, transform;
+	-moz-transition-property: top, transform;
+	-ms-transition-property: top, transform;
+	-o-transition-property: top, transform;
+	transition-property: top, transform;
+}
+
+.menu-handler span:after {
+	bottom: -7px;
+	-webkit-transition-property: bottom, transform;
+	-moz-transition-property: bottom, transform;
+	-ms-transition-property: bottom, transform;
+	-o-transition-property: bottom, transform;
+	transition-property: bottom, transform;
+}
+
+.menu-handler.active span {
+	background-color: transparent;
+	-webkit-transition-delay: 0s, 0s;
+	-moz-transition-delay: 0s, 0s;
+	-ms-transition-delay: 0s, 0s;
+	-o-transition-delay: 0s, 0s;
+	transition-delay: 0s, 0s;
+
+}
+
+.menu-handler.active span:after,
+.menu-handler.active span:before {
+	background-color: #ffffff;
+	-webkit-transition-delay: 0s, .3s;
+	-moz-transition-delay: 0s, .3s;
+	-ms-transition-delay: 0s, .3s;
+	-o-transition-delay: 0s, .3s;
+	transition-delay: 0s, .3s;
+	
+}
+
+.menu-handler.active span:before {
+	top: 0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	
+	
+}
+
+.menu-handler.active span:after {
+	bottom: 0;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.header .menu-handler.active  span {
+	background: none;
+}
+
+.header.on .menu-handler.active  span {
+
+}
+
+
+
+
+@-webkit-keyframes tada{0%{-webkit-transform:scale(1);}
+
+10%, 20%{-webkit-transform:scale(0.9) rotate(-3deg);}
+
+30%, 50%, 70%, 90%{-webkit-transform:scale(1.1) rotate(3deg);}
+
+40%, 60%, 80%{-webkit-transform:scale(1.1) rotate(-3deg);}
+
+100%{-webkit-transform:scale(1) rotate(0);}}
+
+@-moz-keyframes tada{0%{-moz-transform:scale(1);}
+
+10%, 20%{-moz-transform:scale(0.9) rotate(-3deg);}
+
+30%, 50%, 70%, 90%{-moz-transform:scale(1.1) rotate(3deg);}
+
+40%, 60%, 80%{-moz-transform:scale(1.1) rotate(-3deg);}
+
+100%{-moz-transform:scale(1) rotate(0);}}
+
+
+
+@-webkit-keyframes tada2{0%{-webkit-transform:scale(1.5);}
+
+10%, 20%{-webkit-transform:scale(0.9) rotate(-3deg);}
+
+30%, 50%, 70%, 90%{-webkit-transform:scale(1.1) rotate(3deg);}
+
+40%, 60%, 80%{-webkit-transform:scale(1.1) rotate(-3deg);}
+
+100%{-webkit-transform:scale(1) rotate(0);}}
+
+@-moz-keyframes tada2{0%{-moz-transform:scale(1.5);}
+
+10%, 20%{-moz-transform:scale(0.9) rotate(-3deg);}
+
+30%, 50%, 70%, 90%{-moz-transform:scale(1.1) rotate(3deg);}
+
+40%, 60%, 80%{-moz-transform:scale(1.1) rotate(-3deg);}
+
+100%{-moz-transform:scale(1) rotate(0);}}
+
+
+
+
+/* ===================================
+      Preloader
+ ====================================== */
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #ffffff;
+  z-index: 9999999;
+  overflow: hidden;
+}
+.center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.loader {
+  position: relative;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 2px;
+  width: 100px;
+  height: 100px;
+}
+.loader > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #00a669;
+  transform: scale(0);
+  transform-origin: center center;
+  animation: loader 2s infinite linear;
+}
+.loader > div:nth-of-type(1), .loader > div:nth-of-type(5), .loader > div:nth-of-type(9) {
+  animation-delay: 0.4s;
+}
+.loader > div:nth-of-type(4), .loader > div:nth-of-type(8) {
+  animation-delay: 0.2s;
+}
+.loader > div:nth-of-type(2), .loader > div:nth-of-type(6) {
+  animation-delay: 0.6s;
+}
+.loader > div:nth-of-type(3) {
+  animation-delay: 0.8s;
+}
+
+@keyframes loader {
+  0% {
+      transform: scale(0);
+  }
+  40% {
+      transform: scale(1);
+  }
+  80% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(0);
+  }
+}
+
+/*按钮特效*/
+
+
+@-webkit-keyframes fadeInUp200 {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,200px,0);
+	transform:translate3d(0,200px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}@keyframes fadeInUp1 {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,200px,0);
+	transform:translate3d(0,200px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}.fadeInUp200 {
+	-webkit-animation-name:fadeInUp200;
+	animation-name:fadeInUp200
+}
+@-webkit-keyframes fadeInUp1 {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,100px,0);
+	transform:translate3d(0,100px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}@keyframes fadeInUp1 {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,100px,0);
+	transform:translate3d(0,100px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}.fadeInUp1 {
+	-webkit-animation-name:fadeInUp1;
+	animation-name:fadeInUp1
+}
+.delay100 {
+	animation-delay:.1s;
+	animation-fill-mode:backwards!important
+}
+.delay200 {
+	animation-delay:.2s;
+	animation-fill-mode:backwards!important
+}
+.delay300 {
+	animation-delay:.3s;
+	animation-fill-mode:backwards!important
+}
+.delay400 {
+	animation-delay:.4s;
+	animation-fill-mode:backwards!important
+}
+.delay500 {
+	animation-delay:.5s;
+	animation-fill-mode:backwards!important
+}
+.delay600 {
+	animation-delay:.6s;
+	animation-fill-mode:backwards!important
+}
+.delay700 {
+	animation-delay:.7s;
+	animation-fill-mode:backwards!important
+}
+@-webkit-keyframes engineUp1 {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,80px,0);
+	transform:translate3d(0,80px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}@keyframes engineUp {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,80px,0);
+	transform:translate3d(0,80px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}.engineUp1 {
+	-webkit-animation-name:engineUp1;
+	animation-name:engineUp1
+}
+@-webkit-keyframes engineUp {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,50px,0);
+	transform:translate3d(0,50px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}@keyframes engineUp {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,50px,0);
+	transform:translate3d(0,50px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}.engineUp {
+	-webkit-animation-name:engineUp;
+	animation-name:engineUp
+}
+@-webkit-keyframes engineOne {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,30px,0);
+	transform:translate3d(0,30px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}@keyframes engineOne {
+	0% {
+	opacity:0;
+	-webkit-transform:translate3d(0,30px,0);
+	transform:translate3d(0,30px,0)
+}
+to {
+	opacity:1;
+	-webkit-transform:none;
+	transform:none
+}
+}.engineOne {
+	-webkit-animation-name:engineOne;
+	animation-name:engineOne
+}
+.mh {
+	transition-duration:500ms;
+	-webkit-backface-visibility:hidden;
+	-webkit-filter:blur(5px);
+	filter:blur(5px);
+	opacity:0.9;
+	-webkit-animation:nvfadeInDown 1s .1s ease both;
+	-moz-animation:nvfadeInDown .3s .1s ease both;
+}
+@-webkit-keyframes nvfadeInDown {
+	0% {
+	opacity:.2;
+	100% {
+	opacity:1
+}
+}100% {
+	opacity:1;
+}
+}@-moz-keyframes nvfadeInDown {
+	0% {
+	opacity:.2;
+}
+100% {
+	opacity:1;
+}
+}
+
+
+
+  /* 设置动画前颜色 */
+  .point-flicker:after {
+    background-color: #ffb600;
+  }
+ 
+  /* 设置动画后颜色 */
+  .point-flicker:before {
+    background-color: rgba(0, 168, 253, 0.2);
+  }
+ 
+  /* 设置动画 */
+  .point-flicker:before,
+  .point-flicker:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    border-radius: 50%;
+    /* CSS3 animation 属性 网址 */
+    /* https://www.w3school.com.cn/cssref/pr_animation.asp */
+    animation: warn 1.5s ease-out 0s infinite;
+  }
+ 
+  /* @keyframes 规则用于创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果。 */
+  @keyframes warn {
+    0% {
+      transform: scale(0.5);
+      opacity: 1;
+    }
+ 
+    30% {
+      opacity: 1;
+    }
+ 
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+
+  @keyframes downico {
+	0% {
+		top: 0;
+		opacity: 1;
+	}
+
+	35% {
+		top: 50%;
+		opacity: 0;
+	}
+
+	65% {
+		top: -50%;
+		opacity: 0;
+	}
+
+	100% {
+		top: 0;
+		opacity: 1;
+	}
+}
