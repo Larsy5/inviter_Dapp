@@ -6,5 +6,4 @@
 3、执行npm install
 4、node index.js
 
-\n
-网站
+网站链接：http://fero.link/
